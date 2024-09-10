@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airplane Management - Manage Bookings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="schedule.html">Flight Schedule</a></li>
+        <li><a href="manage.html">Manage Bookings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="manage-bookings">
+      <h2>Manage Your Bookings</h2>
+      <form id="booking-form">
+        <label for="booking-id">Enter Your Booking ID:</label>
+        <input type="text" id="booking-id" name="booking-id" placeholder="Booking ID">
+        <button type="submit" class="button">Find Booking</button>
+      </form>
+      <div id="booking-details"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Airplane Management System</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

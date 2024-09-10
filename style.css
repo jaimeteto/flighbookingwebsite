@@ -1,0 +1,84 @@
+/* Using existing styles from your setup */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .wrap {
+    background: #f4f4f4;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+  
+  .headbar {
+    background-color: #0077b6;
+    padding: 15px;
+    text-align: center;
+    color: white;
+  }
+  
+  .headbar i {
+    position: absolute;
+    left: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    padding: 20px;
+  }
+  
+  .separator {
+    margin: 0 10px;
+  }
+  
+  .control {
+    margin-bottom: 20px;
+    background-color: #e9ecef;
+    padding: 10px;
+  }
+  
+  .control-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .control select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .button {
+    padding: 10px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .btnSearch {
+    background-color: #0077b6;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .ticket {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
