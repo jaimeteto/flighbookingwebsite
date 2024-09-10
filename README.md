@@ -1,2 +1,2 @@
-# flighbookingwebsite
-This project is a simple flight booking website consisting of three main pages: a home page for entering travel details, a results page for displaying available flight options, and a details page for collecting user information. The website is built using HTML and CSS to provide a clean and responsive user interface.
+# Flivan_01-07-23
+Boost your website's performance with our complete tutorial on creating stunning flight booking landing pages using HTML and CSS.
