@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+/*NAV style*/
+
+:root {
+    --primary-color: #3d5cb8;
+    --primary-color-dark: #334c99;
+    --text-dark: #0f172a;
+    --text-light: #64748b;
+    --extra-light: #f1f5f9;
+    --white: #ffffff;
+    --max-width: 1200px;
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+h1 {
+    text-align: center;
+}
+nav {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+.nav__logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+.nav__links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+.link a {
+    font-weight: 500;
+    color: var(--text-light);
+    transition: 0.3s;
+  }
+  
+.link a:hover {
+    color: var(--text-dark);
+  }
+.btn {
+    padding: 0.75rem 2rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+#search-info {
+    text-align: center;
+    margin: 3%;
+    font-size: large;
+}
+  
+.btn:hover {
+    background-color: var(--primary-color-dark);
+  }
+
+/*Fligt resuls style*/
+.flight-result {
+    border: 1px solid #272525;
+    padding: 2%;
+    margin: 2%;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 1%;
+    
+    
+}
+.flight-result:hover {
+    background-color: #E6F0FF;
+}
+.airline-logo {
+    width: 10%;
+    height: 10%;
+    margin-right: 20px;
+}
+.flight-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.results-container {
+    width: 70%;
+    margin-right: 3%;
+    background-color: #F5F5F5;
+    border: 2px solid #D1D1D1;
+    color: #2C2C2C;
+    border-radius: 2%;
+}
+
+.filters {
+    width: 10%;
+    padding: 10px;
+    border: 2px solid #434343;
+    margin: 5%;
+    border-radius: 3%;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3); 
+    
+}
+.filter-group {
+    margin:10%
+}
+
+.sort-buttons {
+    margin-left: 3%;
+    margin-left: 10%;
+    text-align: center;
+}
+.sort-buttons button {
+    font-size: 18px; /* Makes the text larger */
+    padding: 10px 20px; /* Increases the size of the button */
+    margin: 1%; /* Remove default margin */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    border-radius: 5px; /* Adds rounded corners to the buttons */
+    border: 1px solid #ccc; /* Optional: adds a border */
+    background-color: #007BFF; /* Button background color */
+    color: white; /* Button text color */
+}
+
+.sort-buttons button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+.flight-info {
+    display: flex; /* Create two-column layout */
+    justify-content: space-between; /* Space out the sections */
+    align-items: center; /* Vertically center the content */
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.flight-details {
+    flex: 1; /* This section will take up the remaining space */
+}
+
+.flight-price {
+    flex: 0 0 150px; /* This section has a fixed width */
+    text-align: right; /* Align text to the right */
+    font-size:xx-large;
+}
+.flight-departure {
+    text-align: center;
+    font-size: x-large;
+}
+
+
+
