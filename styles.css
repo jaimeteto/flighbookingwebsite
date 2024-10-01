@@ -10,6 +10,7 @@
   --max-width: 1200px;
 }
 
+
 * {
   padding: 0;
   margin: 0;
@@ -590,8 +591,8 @@ nav {
   }
 }
 @media (width < 600px) {
-  .nav__links {
-    display: none;
+  :root {
+    --max-width: 100%; /* Adjust this for mobile devices */
   }
 
   .booking__nav span {
