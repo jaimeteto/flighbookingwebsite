@@ -89,6 +89,7 @@
             { time: '02:45 PM', connections: 0, airline: 'EGF.png',price:410.12 },
             { time: '07:15 PM', connections: 2, airline: 'EEZ.png',price:150.98 }
         ];
+        
 
         function displayFlights(flights) {
     const resultsContainer = document.getElementById('results');
@@ -145,8 +146,41 @@
         resultsContainer.appendChild(flightDiv);
     });
 }
+
+
+        // Function to sort and display flights based on the selected criteria
+function sortFlights(criteria) {
+    let sortedFlights;
+    
+    // Sort flights based on the criteria
+    if (criteria === 'cheapest') {
+        sortedFlights = mockFlights.sort((a, b) => a.price - b.price);
+    } else if (criteria === 'fastest') {
+        sortedFlights = mockFlights.sort((a, b) => a.connections - b.connections);
+    } else if (criteria === 'best') {
+        sortedFlights = mockFlights.sort((a, b) => (a.price + a.connections) - (b.price + b.connections));
+    }
+
+    // Update button styles to show the selected one
+    const buttons = document.querySelectorAll('.sort-buttons button');
+    buttons.forEach(button => {
+        button.classList.remove('selected'); // Remove 'selected' class from all buttons
+    });
+
+    // Select the current button
+    const selectedButton = document.querySelector(`.sort-buttons button[onclick="sortFlights('${criteria}')"]`);
+    if (selectedButton) {
+        selectedButton.classList.add('selected'); // Add 'selected' class to the clicked button
+    }
+
+    // Display the sorted flights
+    displayFlights(sortedFlights);
+}
+
+
+
         // Display the mock flights
-        displayFlights();
+        sortFlights('cheapest') // cheapest is default
     </script>
 </body>
 </html>
