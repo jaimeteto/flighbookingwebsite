@@ -6,11 +6,31 @@
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
       rel="stylesheet"
-      
     />
-    
     <link rel="stylesheet" href="styles.css" />
     <title>Wingman</title>
+    <style>
+      .promo-banner {
+        background-color: #ffdd57;
+        color: #000;
+        text-align: center;
+        padding: 10px;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .promo-banner a {
+        color: #000;
+        text-decoration: underline;
+      }
+
+      /* Section to highlight Save More */
+      .memories__card.save-more {
+        border: 2px solid #ffdd57;
+        padding: 20px;
+        background-color: #f8f8f8;
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -19,13 +39,19 @@
         <li class="link"><a href="index.html">Home</a></li>
         <li class="link"><a href="searchPage/search2.html">Book Flight</a></li>
         <li class="link"><a href="destination.html">Destinations</a></li>
-        <li class="link"><a href="about.html">About</a></li>
+        <li class="link"><a href="#promotions">Promotions</a></li>
+        <li class="link"><a href="help.html">Help/FAQ</a></li>
       </ul>
       <a href="contact.html">
         <button class="btn">Contact</button>
       </a>
-      
     </nav>
+
+    <!-- Added promotion banner at the top -->
+    <div class="promo-banner">
+      Check out our latest <a href="#promotions">Promotions and Deals!</a> Save big on your next trip!
+    </div>
+
     <header class="section__container header__container">
       <h1 class="section__header">Find And Book<br />A Great Experience</h1>
       <img src="assets/header.jpg" alt="header" />
@@ -33,32 +59,28 @@
 
     <section class="section__container plan__container">
       <p class="subheader">TRAVEL SUPPORT</p>
-      <h2 class="section__header">Plan your travel with confidence</h2>
+      <h2 class="section__header">Plan Your Travel with Confidence</h2>
       <p class="description">
-        Find help with your bookings and travel plans, and seee what to expect
-        along your journey.
+        Find help with your bookings and travel plans, and see what to expect along your journey.
       </p>
       <div class="plan__grid">
         <div class="plan__content">
           <span class="number">01</span>
-          <h4>Travel Requirements for Dubai</h4>
+          <h4>Visa Requirements for Dubai</h4>
           <p>
-            Stay informed and prepared for your trip to Dubai with essential
-            travel requirements, ensuring a smooth and hassle-free experience in
-            this vibrant and captivating city.
+            Stay informed and prepared for your trip to Dubai with essential visa requirements, ensuring a smooth and hassle-free experience in this vibrant city.
           </p>
+
           <span class="number">02</span>
-          <h4>Multi-risk travel insurance</h4>
+          <h4>Multi-risk Travel Insurance Options</h4>
           <p>
-            Comprehensive protection for your peace of mind, covering a range of
-            potential travel risks and unexpected situations.
+            Comprehensive protection for your peace of mind, covering a range of potential travel risks and unexpected situations.
           </p>
+
           <span class="number">03</span>
-          <h4>Travel Requirements by destinations</h4>
+          <h4>Baggage Rules by Destinations</h4>
           <p>
-            Stay informed and plan your trip with ease, as we provide up-to-date
-            information on travel requirements specific to your desired
-            destinations.
+            Stay informed and plan your trip with ease, as we provide up-to-date information on baggage rules specific to your destinations.
           </p>
         </div>
         <div class="plan__image">
@@ -72,9 +94,7 @@
     <section class="memories">
       <div class="section__container memories__container">
         <div class="memories__header">
-          <h2 class="section__header">
-            Travel to make memories all around the world
-          </h2>
+          <h2 class="section__header">Travel to make memories all around the world</h2>
           <button class="view__all">View All</button>
         </div>
         <div class="memories__grid">
@@ -82,24 +102,24 @@
             <span><i class="ri-calendar-2-line"></i></span>
             <h4>Book & relax</h4>
             <p>
-              With "Book and Relax," you can sit back, unwind, and enjoy the
-              journey while we take care of everything else.
+              With "Book and Relax," you can sit back, unwind, and enjoy the journey while we take care of everything else.
             </p>
           </div>
+
+          <!-- Highlight Save More section -->
+          <div class="memories__card save-more" id="promotions">
+            <span><i class="ri-bookmark-2-line"></i></span>
+            <h4>Save More</h4>
+            <p>
+              From discounted ticket prices to exclusive promotions and deals, we prioritize affordability without compromising on quality.
+            </p>
+          </div>
+
           <div class="memories__card">
             <span><i class="ri-shield-check-line"></i></span>
             <h4>Smart Checklist</h4>
             <p>
-              Introducing Smart Checklist with us, the innovative solution
-              revolutionizing the way you travel with our airline.
-            </p>
-          </div>
-          <div class="memories__card">
-            <span><i class="ri-bookmark-2-line"></i></span>
-            <h4>Save More</h4>
-            <p>
-              From discounted ticket prices to exclusive promotions and deals,
-              we prioritize affordability without compromising on quality.
+              Introducing Smart Checklist with us, the innovative solution revolutionizing the way you travel with our airline.
             </p>
           </div>
         </div>
@@ -117,29 +137,25 @@
           <div class="lounge__details">
             <h4>Experience Tranquility</h4>
             <p>
-              Serenity Haven offers a tranquil escape, featuring comfortable
-              seating, calming ambiance, and attentive service.
+              Serenity Haven offers a tranquil escape, featuring comfortable seating, calming ambiance, and attentive service.
             </p>
           </div>
           <div class="lounge__details">
             <h4>Elevate Your Experience</h4>
             <p>
-              Designed for discerning travelers, this exclusive lounge offers
-              premium amenities, assistance, and private workspaces.
+              Designed for discerning travelers, this exclusive lounge offers premium amenities, assistance, and private workspaces.
             </p>
           </div>
           <div class="lounge__details">
             <h4>A Welcoming Space</h4>
             <p>
-              Creating a family-friendly atmosphere, The Family Zone is the
-              perfect haven for parents and children.
+              Creating a family-friendly atmosphere, The Family Zone is the perfect haven for parents and children.
             </p>
           </div>
           <div class="lounge__details">
             <h4>A Culinary Delight</h4>
             <p>
-              Immerse yourself in a world of flavors, offering international
-              cuisines, gourmet dishes, and carefully curated beverages.
+              Immerse yourself in a world of flavors, offering international cuisines, gourmet dishes, and carefully curated beverages.
             </p>
           </div>
         </div>
@@ -199,20 +215,15 @@
         <div class="footer__col">
           <h3>Wingman</h3>
           <p>
-            Where Excellence Takes Flight. With a strong commitment to customer
-            satisfaction and a passion for air travel, Wingman Airlines offers
-            exceptional service and seamless journeys.
+            Where Excellence Takes Flight. With a strong commitment to customer satisfaction and a passion for air travel, Wingman Airlines offers exceptional service and seamless journeys.
           </p>
           <p>
-            From friendly smiles to state-of-the-art aircraft, we connect the
-            world, ensuring safe, comfortable, and unforgettable experiences.
+            From friendly smiles to state-of-the-art aircraft, we connect the world, ensuring safe, comfortable, and unforgettable experiences.
           </p>
         </div>
-        
-      
       </div>
       <div class="section__container footer__bar">
-        <p>Designed by MRUNAL , SHUBH AND JAIME</p>
+        <p>Designed by MRUNAL, SHUBH, AND JAIME</p>
         <div class="socials">
           <span><i class="ri-facebook-fill"></i></span>
           <span><i class="ri-twitter-fill"></i></span>
