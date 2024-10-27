@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking App</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,400'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/css/nanoscroller.min.css'>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav__logo">WingMan</div>
+        <ul class="nav__links">
+            <li class="link"><a href="index.html">Home</a></li>
+            <li class="link"><a href="booking.html">Book Flight</a></li>
+            <li class="link"><a href="destination.html">Destinations</a></li>
+            <li class="link"><a href="about.html">About</a></li>
+           
+        </ul>
+        <a href="contact.html">
+            <button class="btn">Contact</button>
+          </a>
+    </nav>
+
+    <div class="wrap" data-pos="0">
+        <div class="headbar">
+            <i class="zmdi zmdi-arrow-left btnBack"></i> <span>Flight Booking App</span>
+        </div>
+        <div class="header">
+            <div class="bg"></div>
+            <div class="filter"></div>
+            <div class="title">
+                <div class="fromPlace">
+                    <span>D</span><span>U</span><span>B</span>
+                </div>
+                <span class="separator"><i class="zmdi zmdi-airplane"></i></span>
+                <div class="toPlace">
+                    <span>M</span><span>R</span><span>S</span>
+                </div>
+            </div>
+            <div class="map"></div>
+        </div>
+
+        <div class="content">
+            <section>
+                <div class="form">
+                    <div class="control select">
+                        <div class="control-head">
+                            <i class="zmdi zmdi-flight-takeoff"></i>
+                            <span class="close"><i class="zmdi zmdi-close"></i></span>
+                            <div>
+                                <h6>From</h6>
+                                <span class="airport-name" data-role="from">DUB, Dublin Airport</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control select">
+                        <div class="control-head">
+                            <i class="zmdi zmdi-flight-land"></i>
+                            <span class="close"><i class="zmdi zmdi-close"></i></span>
+                            <div>
+                                <h6>To</h6>
+                                <span class="airport-name" data-role="to">MRS, Marseille Provence Airport</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control dateinput">
+                        <div class="control-head">
+                            <i class="zmdi zmdi-calendar"></i>
+                            <span class="close"><i class="zmdi zmdi-close"></i></span>
+                            <div class="control-item">
+                                <h6>Departure</h6>
+                                <span>MON, 8 May</span>
+                            </div>
+                            <div class="control-item">
+                                <h6>Return</h6>
+                                <span>One Way</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control radio passengers">
+                        <i class="zmdi zmdi-accounts"></i>
+                        <div class="control-item">
+                            <h6>Passengers</h6>
+                            <label>
+                                <input type="radio" name="passengers" value="0" checked="checked">
+                                <div><span>1</span>×<i class="zmdi zmdi-male-alt"></i><small>Adults</small></div>
+                            </label>
+                            <label>
+                                <input type="radio" name="passengers" value="1">
+                                <div><span>0</span>×<i class="zmdi zmdi-face"></i><small>Kids</small></div>
+                            </label>
+                            <label>
+                                <input type="radio" name="passengers" value="2">
+                                <div><span>0</span>×<i class="zmdi zmdi-walk"></i><small>Elders</small></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="control radio">
+                        <i class="zmdi zmdi-airline-seat-recline-extra"></i>
+                        <div class="control-item">
+                            <h6>Class</h6>
+                            <label>
+                                <input type="radio" name="seat" value="Economy" checked="checked">
+                                <span>Economy</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="seat" value="Business">
+                                <span>Business</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="seat" value="First Class">
+                                <span>First Class</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="control">
+                        <button class="btnSearch">Search Flights</button>
+                    </div>
+                </div>
+
+                <div class="list">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <!-- Flight results will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ticket">
+                    <section>
+                        <!-- Selected flight information will be displayed here -->
+                    </section>
+                    <button class="btnBook">BOOK FLIGHT</button>
+                    <div class="loader" style="display: none;">Loading...</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h3>Wingman</h3>
+                <p>Where Excellence Takes Flight. Offering exceptional service and seamless journeys.</p>
+            </div>
+            <div class="footer__col">
+                <h4>Contact Us</h4>
+                <p>Email: info@wingman.com</p>
+            </div>
+        </div>
+        <div class="section__container footer__bar">
+            <p>Designed by MRUNAL , SHUBH AND JAMIE</p>
+            <div class="socials">
+                <span><i class="ri-facebook-fill"></i></span>
+                <span><i class="ri-twitter-fill"></i></span>
+                <span><i class="ri-instagram-line"></i></span>
+                <span><i class="ri-youtube-fill"></i></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/javascripts/jquery.nanoscroller.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+    <script src="script.js"></script>
+</body>
+</html>

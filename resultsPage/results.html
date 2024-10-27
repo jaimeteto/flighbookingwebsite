@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Results</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+      
+    />
+    <link rel="stylesheet" href="style.css"/>
+    
+</head>
+<body>
+    <nav>
+        <div class="nav__logo">Wingman</div>
+        <ul class="nav__links">
+          <li class="link"><a href=".././index.html">Home</a></li>
+          <li class="link"><a href=".././searchPage/search.html">Book Flight</a></li>
+          <li class="link"><a href=".././destination.html">Destinations</a></li>
+          <li class="link"><a href=".././about.html">About</a></li>
+        </ul>
+        <a href=".././contact.html">
+          <button class="btn">Contact</button>
+        </a>
+        
+      </nav>
+      <div id="nav-placeholder"></div>
+
+    <h1>Flight Results</h1>
+    <p id="search-info"></p>
+
+    <!-- Sorting buttons -->
+    <div class="sort-buttons">
+        <button onclick="sortFlights('cheapest')">Cheapest</button>
+        <button onclick="sortFlights('fastest')">Fastest</button>
+        <button onclick="sortFlights('best')">Best</button>
+    </div>
+
+    <div class="main-content">
+        
+
+        <!-- Filters section -->
+        <aside class="filters">
+            <h3>Filters</h3>
+            
+            <!-- Carry-on filter -->
+            <div class="filter-group">
+                <h4>Carry-On</h4>
+                <label><input type="radio" name="carry-on" value="allowed"> Allowed</label><br>
+                <label><input type="radio" name="carry-on" value="not-allowed"> Not Allowed</label>
+            </div>
+
+            <!-- Number of Stops filter -->
+            <div class="filter-group">
+                <h4>Number of Stops</h4>
+                <label><input type="radio" name="stops" value="non-stop"> Non-stop</label><br>
+                <label><input type="radio" name="stops" value="1-stop"> 1 Stop</label><br>
+                <label><input type="radio" name="stops" value="2+ stops"> 2+ Stops</label>
+            </div>
+
+            <!-- Airline filter -->
+            <div class="filter-group">
+                <h4>Airline</h4>
+                <label><input type="radio" name="airline" value="airline1"> Airline 1</label><br>
+                <label><input type="radio" name="airline" value="airline2"> Airline 2</label><br>
+                <label><input type="radio" name="airline" value="airline3"> Airline 3</label>
+            </div>
+        </aside>
+        <!-- Flight results -->
+        <div id="results" class="results-container"></div>
+    </div>
+
+    <script>
+       // Extract URL parameters
+       const params = new URLSearchParams(window.location.search);
+        const departureCity = params.get('departure-city');
+        const arrivalCity = params.get('arrival-city');
+        const departureDate = params.get('departure-date');
+        const returnDate = params.get('return-date');
+
+        // Display search information
+        document.getElementById('search-info').textContent = 
+            `Showing results for flights from ${departureCity} to ${arrivalCity} on ${departureDate} (Return: ${returnDate})`;
+
+        // Mock flight data with airline images
+        const mockFlights = [
+            { time: '08:00 AM', connections: 0, airline: 'AAA.png',price:350.33 },
+            { time: '11:30 AM', connections: 1, airline: 'ACA.png',price:300.12 },
+            { time: '02:45 PM', connections: 0, airline: 'EGF.png',price:410.12 },
+            { time: '07:15 PM', connections: 2, airline: 'EEZ.png',price:150.98 }
+        ];
+
+        function displayFlights(flights) {
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = ''; // Clear previous results
+
+    flights.forEach((flight, index) => {
+        // Create a flight result div
+        const flightDiv = document.createElement('div');
+        flightDiv.className = 'flight-result';
+
+        // Airline logo image
+        const logoImg = document.createElement('img');
+        logoImg.src = `../airline-logos-main/logos/${flight.airline}`;
+        logoImg.alt = `Airline ${index + 1} logo`;
+        logoImg.className = 'airline-logo';
+
+        // Create the first section (Flight time and connections)
+        const flightDetailsDiv = document.createElement('div');
+        flightDetailsDiv.className = 'flight-details';
+        flightDetailsDiv.innerHTML = `
+            <strong>Flight ${index + 1}</strong><br>
+            Time: ${flight.time}<br>
+            Connections: ${flight.connections}
+        `;
+
+        // Create the second section (Departure and Arrival)
+        const flightDepartureDiv = document.createElement('div');
+        flightDepartureDiv.className = 'flight-departure';
+        flightDepartureDiv.innerHTML = `
+            Departure: ${departureCity}<br>
+            Arrival: ${arrivalCity}<br>
+        `;
+
+        // Create the third section (price)
+        const flightPriceDiv = document.createElement('div');
+        flightPriceDiv.className = 'flight-price';
+        flightPriceDiv.innerHTML = `
+            Price: $${flight.price}
+        `;
+
+        // Append both sections to the main flightInfoDiv
+        flightDiv.appendChild(flightDetailsDiv);
+        flightDiv.appendChild(flightDepartureDiv);
+        flightDiv.appendChild(flightPriceDiv);
+        
+        // Append logo and flight info to flight result
+        flightDiv.appendChild(logoImg);
+
+        // Add click event to simulate going to a booking page
+        flightDiv.onclick = function() {
+            alert(`You clicked on Flight ${index + 1}`);
+        };
+
+        resultsContainer.appendChild(flightDiv);
+    });
+}
+        // Display the mock flights
+        displayFlights();
+    </script>
+</body>
+</html>

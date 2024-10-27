@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Booking Search Bar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav id="nav1">
+    <div class="nav__logo">Wingman</div>
+    <ul class="nav__links">
+      <li class="link"><a href=".././index.html">Home</a></li>
+      <li class="link"><a href="search.html">Book Flight</a></li>
+      <li class="link"><a href=".././destination.html">Destinations</a></li>
+      <li class="link"><a href=".././about.html">About</a></li>
+    </ul>
+    <a href="../contact.html">
+      <button class="btn">Contact</button>
+    </a>
+    
+  </nav>
+  <div class="search-bar">
+    <form action="../resultsPage/results.html" method="GET">
+      <div class="form-group">
+        <label for="departure-city">From:</label>
+        <input type="text" id="departure-city" name="departure-city" placeholder="Departure City" required>
+      </div>
+
+      <div class="form-group">
+        <label for="arrival-city">To:</label>
+        <input type="text" id="arrival-city" name="arrival-city" placeholder="Arrival City" required>
+      </div>
+
+      <div class="form-group">
+        <label for="departure-date">Departure Date:</label>
+        <input type="date" id="departure-date" name="departure-date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="return-date">Return Date:</label>
+        <input type="date" id="return-date" name="return-date">
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="search-btn" >Search Flights</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

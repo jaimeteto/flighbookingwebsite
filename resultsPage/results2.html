@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <nav>
+        <div class="nav__logo">Wingman</div>
+        <ul class="nav__links">
+          <li class="link"><a href="../index.html">Home</a></li>
+          <li class="link"><a href="../searchPage/search2.html">Book Flight</a></li>
+          <li class="link"><a href="../destination.html">Destinations</a></li>
+          <li class="link"><a href="../about.html">About</a></li>
+          <li class="link"><a href="../help.html">Help/FAQ</a></li>
+        </ul>
+        <a href="../contact.html">
+          <button class="btn">Contact</button>
+        </a>
+    </nav>
+ 
+    <h1>Flight Results</h1>
+    <p id="search-info"></p>
+ 
+    <!-- Sorting buttons -->
+    <div class="sort-buttons">
+        <button onclick="sortFlights('cheapest')">Cheapest</button>
+        <button onclick="sortFlights('fastest')">Fastest</button>
+        <button onclick="sortFlights('best')">Best</button>
+    </div>
+ 
+    <div class="main-content">
+        <!-- Filters section -->
+        <aside class="filters">
+            <h3>Filters</h3>
+            <p class="filter-message">Select multiple filters to refine your search.</p>
+            
+            <!-- Carry-on filter (radio buttons for single selection) -->
+            <div class="filter-group">
+                <h4>Carry-On</h4>
+                <label><input type="radio" name="carry-on" value="allowed" onchange="applyFilters()"> Allowed</label><br>
+                <label><input type="radio" name="carry-on" value="not-allowed" onchange="applyFilters()"> Not Allowed</label>
+            </div>
+ 
+            <!-- Number of Stops filter (checkboxes for multiple selection) -->
+            <div class="filter-group">
+                <h4>Number of Stops</h4>
+                <label><input type="checkbox" name="stops" value="non-stop" onchange="applyFilters()"> Non-stop</label><br>
+                <label><input type="checkbox" name="stops" value="1-stop" onchange="applyFilters()"> 1 Stop</label><br>
+                <label><input type="checkbox" name="stops" value="2+ stops" onchange="applyFilters()"> 2+ Stops</label>
+            </div>
+ 
+            <!-- Airline filter (checkboxes for multiple selection) -->
+            <div class="filter-group">
+                <h4>Airline</h4>
+                <label><input type="checkbox" name="airline" value="airline1" onchange="applyFilters()"> Airline 1</label><br>
+                <label><input type="checkbox" name="airline" value="airline2" onchange="applyFilters()"> Airline 2</label><br>
+                <label><input type="checkbox" name="airline" value="airline3" onchange="applyFilters()"> Airline 3</label>
+            </div>
+        </aside>
+        <!-- Flight results -->
+        <div id="results" class="results-container"></div>
+    </div>
+ 
+    <script>
+       // Extract URL parameters
+       const params = new URLSearchParams(window.location.search);
+       const departureCity = params.get('departure-city');
+       const arrivalCity = params.get('arrival-city');
+       const departureDate = params.get('departure-date');
+       const returnDate = params.get('return-date');
+ 
+        // Display search information
+        document.getElementById('search-info').textContent =
+            `Showing results for flights from ${departureCity} to ${arrivalCity} on ${departureDate} (Return: ${returnDate})`;
+ 
+        // Mock flight data with airline logos
+        const mockFlights = [
+            { time: '08:00 AM', connections: 0, airline: 'airline1', price: 350.33, carryOn: 'allowed', logo: '../airline-logos-main/logos/AAA.png' },
+            { time: '11:30 AM', connections: 1, airline: 'airline2', price: 300.12, carryOn: 'not-allowed', logo: '../airline-logos-main/logos/ACA.png' },
+            { time: '02:45 PM', connections: 0, airline: 'airline3', price: 410.12, carryOn: 'allowed', logo: '../airline-logos-main/logos/EGF.png' },
+            { time: '07:15 PM', connections: 2, airline: 'airline1', price: 150.98, carryOn: 'allowed', logo: '../airline-logos-main/logos/EEZ.png' }
+        ];
+        
+        function displayFlights(flights) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = ''; // Clear previous results
+            flights.forEach((flight, index) => {
+                const flightDiv = document.createElement('div');
+                flightDiv.className = 'flight-result';
+
+                // Include airline logo if available
+                const logoImg = document.createElement('img');
+                logoImg.src = flight.logo;
+                logoImg.alt = `Logo for ${flight.airline}`;
+                logoImg.className = 'airline-logo';
+
+                flightDiv.innerHTML = `
+                    <strong>Flight ${index + 1}</strong><br>
+                    Departure City: ${departureCity}<br>
+                    Arrival City: ${arrivalCity}<br>
+                    Airline: ${flight.airline}<br>
+                    Time: ${flight.time}<br>
+                    Connections: ${flight.connections}<br>
+                    Price: $${flight.price}
+                `;
+
+                // Append the logo image to the flightDiv
+                flightDiv.insertBefore(logoImg, flightDiv.firstChild);
+
+                // Redirect to form.html when a flight is clicked
+                flightDiv.onclick = function() {
+                    const depCity = encodeURIComponent(params.get('departure-city'));
+                    const arrCity = encodeURIComponent(params.get('arrival-city'));
+                    window.location.href = `form.html?departure-city=${depCity}&arrival-city=${arrCity}`;
+                };
+                
+                resultsContainer.appendChild(flightDiv);
+            });
+        }
+ 
+        // Sort and display flights
+        function sortFlights(criteria) {
+            let sortedFlights = [...mockFlights];
+            if (criteria === 'cheapest') sortedFlights.sort((a, b) => a.price - b.price);
+            else if (criteria === 'fastest') sortedFlights.sort((a, b) => a.connections - b.connections);
+            else if (criteria === 'best') sortedFlights.sort((a, b) => (a.price + a.connections) - (b.price + b.connections));
+            displayFlights(sortedFlights);
+        }
+ 
+        function applyFilters() {
+            // Get selected filters
+            const carryOnFilter = document.querySelector('input[name="carry-on"]:checked')?.value;
+            const stopsFilters = Array.from(document.querySelectorAll('input[name="stops"]:checked')).map(el => el.value);
+            const airlineFilters = Array.from(document.querySelectorAll('input[name="airline"]:checked')).map(el => el.value);
+            
+            // Filter flights based on selected options
+            const filteredFlights = mockFlights.filter(flight => {
+                const carryOnMatch = !carryOnFilter || flight.carryOn === carryOnFilter;
+                const stopsMatch = stopsFilters.length === 0 || stopsFilters.includes(flight.connections === 0 ? 'non-stop' : `${flight.connections}-stop`);
+                const airlineMatch = airlineFilters.length === 0 || airlineFilters.includes(flight.airline);
+                return carryOnMatch && stopsMatch && airlineMatch;
+            });
+            
+            displayFlights(filteredFlights);
+        }
+
+        // Initialize with default sort and display
+        sortFlights('cheapest'); // Default sorting by cheapest
+    </script>
+</body>
+</html>

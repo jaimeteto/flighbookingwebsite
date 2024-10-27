@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Results</title>
+</head>
+<body>
+    <h1>Flight Results</h1>
+    <p id="search-info"></p>
+    <div id="results"></div>
+
+    <script>
+        // Extract URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const departureCity = params.get('departureCity');
+        const arrivalCity = params.get('arrivalCity');
+        const departureDate = params.get('departureDate');
+        const returnDate = params.get('returnDate');
+
+        // Display search information
+        document.getElementById('search-info').textContent = 
+            `Showing results for flights from ${departureCity} to ${arrivalCity} on ${departureDate} (Return: ${returnDate})`;
+
+        // Mock flight data
+        const mockFlights = [
+            { time: '08:00 AM', connections: 0 },
+            { time: '11:30 AM', connections: 1 },
+            { time: '02:45 PM', connections: 0 },
+            { time: '07:15 PM', connections: 2 }
+        ];
+
+        // Function to display flight results
+        function displayFlights() {
+            const resultsContainer = document.getElementById('results');
+            mockFlights.forEach((flight, index) => {
+                // Create a flight result div
+                const flightDiv = document.createElement('div');
+                flightDiv.className = 'flight-result';
+                flightDiv.innerHTML = `
+                    <strong>Flight ${index + 1}</strong><br>
+                    Time: ${flight.time}<br>
+                    Connections: ${flight.connections}
+                `;
+                // Add click event to simulate going to a booking page
+                flightDiv.onclick = function() {
+                    alert(`You clicked on Flight ${index + 1}`);
+                };
+                // Append flight result to results container
+                resultsContainer.appendChild(flightDiv);
+            });
+        }
+
+        // Display the mock flights
+        displayFlights();
+    </script>
+</body>
+</html>
