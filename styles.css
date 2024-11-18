@@ -592,7 +592,11 @@ nav {
 }
 @media (width < 600px) {
   :root {
+<<<<<<< HEAD
     --max-width: 50%; /* Adjust this for mobile devices */
+=======
+    --max-width: 100%; /* Adjust this for mobile devices */
+>>>>>>> source/main
   }
 
   .booking__nav span {

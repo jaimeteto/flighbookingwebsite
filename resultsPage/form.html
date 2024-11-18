@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet"/>
+    
+    <style>
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .nav__logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .nav__links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav__links .link a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Page Title */
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2em;
+        }
+
+        /* Booking Form */
+        .booking-form-container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #f9f9f9;
+        }
+
+        .booking-form-container h2 {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .flight-details-header {
+            text-align: center;
+            font-size: 1.3em;
+            margin-top: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav__logo">Wingman</div>
+        <ul class="nav__links">
+          <li class="link"><a href="../index.html">Home</a></li>
+          <li class="link"><a href="../searchPage/search2.html">Book Flight</a></li>
+          <li class="link"><a href="../destination.html">Destinations</a></li>
+          <li class="link"><a href="../about.html">About</a></li>
+          <li class="link"><a href="../help.html">Help/FAQ</a></li>
+        </ul>
+        <a href="../contact.html">
+          <button class="btn">Contact</button>
+        </a>
+    </nav>
+
+    <!-- Dynamic header displaying flight details -->
+    <h1>Flight Booking Form</h1>
+    <div class="flight-details-header" id="flight-details-header">
+        Booking Flight Details: <span id="departure-city"></span> to <span id="arrival-city"></span>
+    </div>
+
+    <!-- Booking Form -->
+    <div class="booking-form-container">
+        <form id="booking-form" onsubmit="submitBooking(event)">
+            <h2>Passenger Information</h2>
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+           
+
+            <button type="submit" class="submit-btn">Submit Booking</button>
+        </form>
+    </div>
+
+    <script>
+        // Retrieve departure and arrival city from URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const departureCity = params.get('departure-city');
+        const arrivalCity = params.get('arrival-city');
+
+        // Display departure and arrival city in header
+        document.getElementById('departure-city').textContent = departureCity || "Unknown Departure";
+        document.getElementById('arrival-city').textContent = arrivalCity || "Unknown Arrival";
+
+        // Function to handle form submission
+        function submitBooking(event) {
+            event.preventDefault(); // Prevent form from submitting
+            alert("Thank you for booking! Your booking has been submitted.");
+            // Redirect to the index page after the alert
+            window.location.href = "../index.html";
+        }
+    </script>
+</body>
+</html>

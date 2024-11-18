@@ -8,6 +8,29 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+<<<<<<< HEAD
+=======
+    <script>
+      // Function to handle date conflicts between departure and return date
+      function handleDateChange() {
+        const departureDate = document.getElementById('departure-date');
+        const returnDate = document.getElementById('return-date');
+  
+        // Set minimum return date to the departure date
+        returnDate.min = departureDate.value;
+  
+        // Optional: Reset return date if it's less than the departure date
+        if (returnDate.value && returnDate.value < departureDate.value) {
+          returnDate.value = departureDate.value;
+        }
+      }
+      
+      window.onload = function() {
+        const departureDate = document.getElementById('departure-date');
+        departureDate.addEventListener('change', handleDateChange);
+      };
+    </script>
+>>>>>>> source/main
     <title>Wingman</title>
     <style>
       .promo-banner {
@@ -30,6 +53,49 @@
         padding: 20px;
         background-color: #f8f8f8;
       }
+<<<<<<< HEAD
+=======
+      .search-bar {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.search-bar form {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Spacing between items */
+}
+
+.search-bar .form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.search-bar .form-group label {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.search-bar input,
+.search-bar button {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.search-bar .search-btn {
+  padding: 10px 15px; /* Adjust padding to match input height */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px; /* Adjust this to perfectly align the button */
+}
+
+.search-bar .search-btn:hover {
+  background-color: #0056b3;
+}
+>>>>>>> source/main
     </style>
   </head>
   <body>
@@ -46,7 +112,37 @@
         <button class="btn">Contact</button>
       </a>
     </nav>
+<<<<<<< HEAD
 
+=======
+    <div class="search-bar">
+      <form action="resultsPage/results2.html" method="GET">
+        <div class="form-group">
+          <label for="departure-city">From:</label>
+          <input type="text" id="departure-city" name="departure-city" placeholder="Departure City" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="arrival-city">To:</label>
+          <input type="text" id="arrival-city" name="arrival-city" placeholder="Arrival City" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="departure-date">Departure Date:</label>
+          <input type="date" id="departure-date" name="departure-date" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="return-date">Return Date:</label>
+          <input type="date" id="return-date" name="return-date">
+        </div>
+  
+        <div class="form-group">
+          <button type="submit" class="search-btn">Search Flights</button>
+        </div>
+      </form>
+    </div>
+>>>>>>> source/main
     <!-- Added promotion banner at the top -->
     <div class="promo-banner">
       Check out our latest <a href="#promotions">Promotions and Deals!</a> Save big on your next trip!
@@ -57,6 +153,10 @@
       <img src="assets/header.jpg" alt="header" />
     </header>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> source/main
     <section class="section__container plan__container">
       <p class="subheader">TRAVEL SUPPORT</p>
       <h2 class="section__header">Plan Your Travel with Confidence</h2>
