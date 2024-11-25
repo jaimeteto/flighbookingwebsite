@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        footer.thank-you-message {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .infoContainer{
+            text-align: center;
+        }
+
+        /* Style the Confirm button */
+        button.confirm-button {
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        /* Hover effect for button */
+        button.confirm-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+      
+    </style>
+</head>
+<body>
+    <h1>Booking Confirmation</h1>
+    <div class=" infoContainer">
+        <p><strong>Name:</strong> <span id="name1"></span></p>
+        <p><strong>Email:</strong> <span id="email1"></span></p>
+        <p><strong>Departure City:</strong> <span id="depa"></span></p>
+        <p><strong>Arrival City:</strong> <span id="arrival"></span></p>
+    </div>
+    
+    <button id = confirm-button class="confirm-button">Confirm Booking</button>
+
+    <script>
+       document.addEventListener("DOMContentLoaded", () => {
+    // Get query parameters from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name");
+    const email = urlParams.get("email");
+    const arrivalCity= urlParams.get("arrivalCity");
+    const departureCity= urlParams.get("departureCity");
+
+    // Display data on the page
+    document.getElementById("name1").textContent = name || "N/A";
+    document.getElementById("email1").textContent = email || "N/A";
+    document.getElementById("depa").textContent = arrivalCity || "N/A";
+    document.getElementById("arrival").textContent = departureCity || "N/A";
+});
+    </script>
+</body>
+</html>
