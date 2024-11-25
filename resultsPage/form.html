@@ -173,9 +173,18 @@
         // Function to handle form submission
         function submitBooking(event) {
             event.preventDefault(); // Prevent form from submitting
-            alert("Thank you for booking! Your booking has been submitted.");
-            // Redirect to the index page after the alert
-            window.location.href = "../index.html";
+
+            // Capture form data
+            const name = document.querySelector("input[name='first-name']").value;
+            const email = document.querySelector("input[name='email']").value;
+
+            // Store data in localStorage
+            localStorage.setItem("bookingName", name);
+            localStorage.setItem("bookingEmail", email);
+            
+
+            // Redirect to the confirmation page
+            window.location.href = `confirmationPage.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&departureCity=${encodeURIComponent(departureCity)}&arrivalCity=${encodeURIComponent(arrivalCity)}`;
         }
     </script>
 </body>

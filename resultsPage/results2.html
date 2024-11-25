@@ -3,6 +3,7 @@
 <head>
     <title>Flight Results</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -25,9 +26,20 @@
  
     <!-- Sorting buttons -->
     <div class="sort-buttons">
-        <button onclick="sortFlights('cheapest')">Cheapest</button>
-        <button onclick="sortFlights('fastest')">Fastest</button>
-        <button onclick="sortFlights('best')">Best</button>
+        <div class="option-icon" onclick="sortFlights('cheapest')">
+            <i class="fas fa-dollar-sign"></i>
+            <span>Cheapest</span>
+          </div>
+          
+          <div class="option-icon" onclick="sortFlights('fastest')">
+            <i class="fas fa-rocket"></i>
+            <span>Fastest</span>
+          </div>
+          
+          <div class="option-icon"onclick="sortFlights('best')">
+            <i class="fas fa-balance-scale"></i>
+            <span>Best Value</span>
+          </div>
     </div>
  
     <div class="main-content">
@@ -97,15 +109,15 @@
                 logoImg.className = 'airline-logo';
 
                 flightDiv.innerHTML = `
-                    <strong>Flight ${index + 1}</strong><br>
-                    Departure City: ${departureCity}<br>
-                    Arrival City: ${arrivalCity}<br>
-                    Airline: ${flight.airline}<br>
-                    Time: ${flight.time}<br>
-                    Connections: ${flight.connections}<br>
-                    Price: $${flight.price}
+                    <br>
+                    <span  style = "font-weight: bold;">Time: ${flight.time}</span><br>
+                    <span style="font-weight: bold;">Price: $${flight.price}</span><br>
+                    <span style="color: #555555;">Departure City: ${departureCity}</span><br>
+                    <span style="color: #555555;">Arrival City: ${arrivalCity}</span><br>
+                    <span style="color: #555555;">Airline:${flight.airline}</span><br>
+                    <span style="color: #555555;">Connections: ${flight.connections}</span><br>
+                    
                 `;
-
                 // Append the logo image to the flightDiv
                 flightDiv.insertBefore(logoImg, flightDiv.firstChild);
 

@@ -4,25 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flight Booking Search Bar</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
+    
     // Function to handle date conflicts between departure and return date
     function handleDateChange() {
-      const departureDate = document.getElementById('departure-date');
-      const returnDate = document.getElementById('return-date');
+      
+      const departureDate = document.querySelector("#departure-date")._flatpickr;
+      const returnDate = document.querySelector("#departure-date")._flatpickr;
 
-      // Set minimum return date to the departure date
-      returnDate.min = departureDate.value;
+      //const departureDate = document.getElementById('departure-date');
+      //const returnDate = document.getElementById('return-date');
+
 
       // Optional: Reset return date if it's less than the departure date
       if (returnDate.value && returnDate.value < departureDate.value) {
-        returnDate.value = departureDate.value;
+        returnDate.minDate = departureDate.value;
       }
     }
     
     window.onload = function() {
-      const departureDate = document.getElementById('departure-date');
-      departureDate.addEventListener('change', handleDateChange);
+    // Make the calendar icon clickable for both input fields
+    document.getElementById('departure-calendar-icon').addEventListener('click', function() {
+      departureDatePicker.open();  // Open the Flatpickr calendar
+    });
+    document.getElementById('return-calendar-icon').addEventListener('click', function() {
+      returnDatePicker.open();  // Open the Flatpickr calendar
+    });
+      // Initialize Flatpickr for departure date
+    const departureDatePicker = flatpickr("#departure-date", {
+      dateFormat: "Y-m-d",
+      onChange: function(selectedDates, dateStr, instance) {
+        // Get the selected departure date
+        const departureDate = selectedDates[0];
+        
+        // Set the minimum date of the return date picker to the selected departure date
+        returnDatePicker.set('minDate', departureDate);
+        
+        // Optional: Automatically set the return date to the same as the departure date if return date is not selected
+        if (!returnDatePicker.selectedDates.length) {
+          returnDatePicker.setDate(departureDate);
+        }
+      }
+    });
+
+    // Initialize Flatpickr for return date
+    const returnDatePicker = flatpickr("#return-date", {
+      dateFormat: "Y-m-d",
+      // Initially set a default minimum date for the return date
+      minDate: "today", 
+    });
     };
   </script>
 </head>
@@ -56,12 +91,19 @@
 
       <div class="form-group">
         <label for="departure-date">Departure Date:</label>
-        <input type="date" id="departure-date" name="departure-date" required>
+        <div class="date-input-wrapper">
+          <input type="text" id="departure-date" name="departure-date" required>
+          <i class="fas fa-calendar-alt calendar-icon" id="departure-calendar-icon"></i>
+        </div>
       </div>
 
       <div class="form-group">
         <label for="return-date">Return Date:</label>
-        <input type="date" id="return-date" name="return-date">
+        <div class="date-input-wrapper">
+          <input type="text" id="return-date" name="return-date" required>
+          <i class="fas fa-calendar-alt calendar-icon" id="return-calendar-icon"></i>
+        </div>
+        
       </div>
 
       <div class="form-group">
